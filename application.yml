@@ -87,6 +87,17 @@ spring:
     data: classpath*:db/mysql/data.sql
     url: jdbc:mysql://mysql-petclinic-valentinagrajales.mysql.database.azure.com/petclinic?useSSL=true
     initialization-mode: ALWAYS
+  kafka:
+    bootstrap-servers: evhns-petclinic-valentina.servicebus.windows.net:9093
+    client-id: first-service
+    group-id: $Default
+    properties:
+      sasl.jaas.config: 
+      sasl.mechanism: PLAIN
+      security.protocol: SASL_SSL
+      spring.json:
+        use.type.headers: false
+        value.default.type: com.targa.labs.dev.telemetrystation.Message
   cloud:
     azure:
       keyvault:
